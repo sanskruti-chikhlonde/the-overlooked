@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="THE OVERLOOKED — Things worth noticing. An immersive photography experience celebrating the beauty in overlooked details.">
 
-    <title>THE OVERLOOKED </title>
+    <title>THE OVERLOOKED — Things worth noticing. </title>
 </head>
 <body>
     
-    <!--Header-->
+    <!--Site Header-->
     <header class="site-header">
-        <a href="inderx.html" class="logo">THE OVERLOOKED </a>
+        <a href="index.html" class="logo">THE OVERLOOKED </a>
 
-        <nav>
+        <nav class="main-nav" aria-label="Main navigation">
             <a href="unseen.html">UNSEEN</a>
             <a href="frames.html">FRAMES</a>
             <a href="keeps.html">KEEPS</a>
             <a href="perspective.html">PERSPECTIVE</a>
         </nav>
 
-        <button class="theme-toggle" type="button">
-            The World in Shadow
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
+            The World in Shadows
         </button>
      </header>
 
@@ -29,14 +29,14 @@
      <main>
 
         <!--Hero section-->
-        <section class="hero">
+        <section class="hero" aria-labelledby="hero-title">
 
             <div class="hero-content">
-                <p class="hero-label">-</p>
+                <p class="hero-label"> A STUDY OF THE UNNOTICED</p>
 
-                <h1>
-                    THE<br>
-                    OVERLOOKED<span>.</span>
+                <h1 id="hero-title">
+                    LOOK<br>
+                    CLOSER<span>.</span>
                 </h1>
 
                 <p class="hero-tagline">
@@ -51,24 +51,25 @@
                 <a href="frames.html" class="hero-cta">
                     EXPLORE THE FRAMES <span aria-hidden="true">↗</span>
                 </a>
+
             </div>
             
-             <!-- Floating Image Composition -->
-            <div class="hero-gallery" aria-label="A preview of overlooked beauty">
+             <!-- Hero Photography -->
+            <div class="hero-gallery">
 
-                <figure class="hero-image hero-image-one">
-                    <img src="assets/images/light/hero-01.jpg"
-                         alt="A detail waiting to be noticed">
+                <figure class="hero-image hero-image-main">
+                    <img src="img"
+                         alt="-">
                 </figure>
 
-                <figure class="hero-image hero-image-two">
-                    <img src="assets/images/light/hero-02.jpg"
-                         alt="An overlooked moment in nature">
+                <figure class="hero-image hero-image-detail-one">
+                    <img src="img"
+                         alt="-">
                 </figure>
 
-                <figure class="hero-image hero-image-three">
-                    <img src="assets/images/light/hero-03.jpg"
-                         alt="An unexpected play of light and texture">
+                <figure class="hero-image hero-image-detail-two">
+                    <img src="img"
+                         alt="-">
                 </figure>
 
             </div>
@@ -76,18 +77,48 @@
         </section>
 
 
-        <!-- Selected Work Section -->
-        <section class="selected-work">
+        <!-- Discover Section -->
+        <section class="discover-section"
+         aria-labelledby="discover-title">
 
             <div class="section-heading">
-                <p>01 / A CLOSER LOOK</p>
-                <h2>Beauty lives in the details.</h2>
+                <p class="section-label">01 / DISCOVER</p>
+                <h2 id="discover-title">The unexpected details.</h2>
+
+                <p>
+                    A different angle. A fleeting moment.
+                    A detail most people miss.
+                    That's where the real beauty lives.
+                </p>
+
+                <a href="unseen.html" class="text-link">
+                   EXPLORE UNSEEN
+                   <span aria-hidden="true">↗</span>
+                </a>
             </div>
 
-            <a href="frames.html" class="text-link">
-                VIEW THE COLLECTION <span aria-hidden="true">↗</span>
-            </a>
+        </section>
+      
+        <!-- Collection Section -->
+ 
+        <section class="collection-section"
+        aria-labelledby="collection-title">
+      
+            <div class="section-heading">
+                <p class="section-label">02 / EXPLORE THE COLLECTION</p>
+                <h2 id="collection-title">UNSEEN <span aria-hidden="true">/</span> FRAMES</h2>
 
+                <p>
+                    Hidden details. Real moments.
+                    Curated into a collection of what often goes unnoticed.
+                </p>
+
+                <a href="frames.html" class="text-link">
+                    EXPLORE THE COLLECTION
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+            </div>
         </section>
 
     </main>
@@ -95,10 +126,11 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-        <p>THE OVERLOOKED — Things worth noticing.</p>
+        <a href="index.html" class="footer-logo">
+            THE OVERLOOKED
+        </a>
+        <p>Things worth noticing.</p>
     </footer>
-
-     </main>
 
 </body>
 </html>
