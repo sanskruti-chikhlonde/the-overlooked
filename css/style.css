@@ -1,6 +1,7 @@
 :root {
-    --bg--color: #f7f4ee;
+    --bg-color: #f7f4ee;
     --text-color: #252521;
+    --muted-color: #77756e;
     --border-color: #dcd9d0;
 }
 
@@ -50,7 +51,7 @@ button {
 .main-nav a {
     font-size: 11px;
     letter-spacing: 1.5px;
-    transition: color 0.2 ease;
+    transition: color 0.2s ease;
 }
 
 .main-nav a:hover {
