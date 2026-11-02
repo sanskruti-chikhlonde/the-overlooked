@@ -304,9 +304,63 @@ font-style: italic;
 .comparison-placeholder {
     position: relative;
     width: 100%;
-    min-height: 480px;
+     height: min(65vw, 620px);
+    min-height: 420px;
     overflow: hidden;
-    background-color: #d9d3c9;
+}
+
+.image-comparison {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    touch-action: pan-y;
+    user-select: none;
+}
+
+.comparison-light,
+.comparison-dark img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comparison-dark {
+    position: absolute;
+    inset: 0;
+    clip-path: inset(0 0 0 50%);
+}
+
+.comparison-dark img {
+    filter: grayscale(100%) brightness(0.55) contrast(1.1);
+}
+
+.comparison-divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: #f7f4ee;
+    transform: translateX(-50%);
+    cursor: default;
+}
+
+.comparison-divider span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(247, 244, 238, 0.7);
+    border-radius: 50%;
+    background: #252521;
+    color: #f7f4ee;
+    transform: translate(-50%, -50%);
+    cursor: ew-resize;
 }
 
 .perspective-section .section-label,
@@ -317,3 +371,4 @@ font-style: italic;
 .perspective-section .comparison-placeholder {
     background-color: #38362f;
 }
+
