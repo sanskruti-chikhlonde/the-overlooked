@@ -3,6 +3,10 @@
     --text-color: #252521;
     --muted-color: #77756e;
     --border-color: #dcd9d0;
+
+    --header-bg: #252521; 
+    --header-text: #f7f4ee; 
+    --header-hover: #c6b7a1;
 }
 
 * {
@@ -28,14 +32,26 @@ button {
 } 
 
 .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 5%;
-    border-bottom: 1px solid var(--border-color);
+    gap: 24px;
+
+    width: 100%;
+    padding: 20px 5%;
+
+    background-color: #252521;
+    color:#f7f4ee;
+    border-bottom: 1px solid rgba(247, 244, 238, 0.18);
 }
 
 .logo {
+    flex-shrink: 0;
+    color: var(--header-text);
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 1px;
@@ -49,21 +65,85 @@ button {
 }
 
 .main-nav a {
+    color: var(--header-text);
     font-size: 11px;
     letter-spacing: 1.5px;
     transition: color 0.2s ease;
 }
 
 .main-nav a:hover {
-    color: var(--border-color);
+    color: var(--header-hover);
 }
 
 .theme-toggle {
+    flex-shrink: 0;
     padding: 11px 18px;
-    border: 1px solid var(--border-color);
+
+    border: 1px solid rgba(247, 244, 238, 0.4);
     border-radius: 30px;
+
     background: transparent;
-    color: var(--text-color);
+    color: var(--header-text);
     font-size: 12px;
     cursor: pointer;
+}
+
+/* Footer */
+.site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 32px 6%;
+    
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.footer-logo {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+}
+
+.site-footer p {
+    color: var(--muted-color);
+    font-size: 12px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 768px) {
+.details-gallery {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 24px 16px;
+}
+
+.detail-card img {
+    height: 180px;
+}
+
+.detail-card-botanical,
+.detail-card-texture {
+    margin-top: 20px;
+}
+
+}
+
+@media (max-width: 480px) {
+.details-gallery {
+grid-template-columns: 1fr;
+}
+
+.detail-card img {
+    height: 240px;
+}
+
+.detail-card-botanical,
+.detail-card-atmosphere,
+.detail-card-texture {
+    margin-top: 0;
+}
+
 }
