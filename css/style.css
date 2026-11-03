@@ -9,6 +9,16 @@
     --header-hover: #c6b7a1;
 }
 
+body.dark-theme {
+    --bg-color: #252521;
+    --text-color: #f7f4ee;
+    --muted-color: #aaa79f;
+    --border-color: #45443f;
+    --header-bg: #171715;
+    --header-text: #f7f4ee;
+    --header-hover: #c6b7a1;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -44,8 +54,8 @@ button {
     width: 100%;
     padding: 20px 5%;
 
-    background-color: #252521;
-    color:#f7f4ee;
+    background-color: var(--header-bg);
+    color:var(--header-text);
     border-bottom: 1px solid rgba(247, 244, 238, 0.18);
 }
 
