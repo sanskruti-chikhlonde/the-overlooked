@@ -366,8 +366,11 @@ body:not(.dark-theme) .comparison-divider span {
     left: 50%;
     width: 1px;
     background: #f7f4ee;
-    transform: translateX(-50%);
+    transform: translateX(-50%); 
     cursor: default;
+    pointer-events: auto;
+    touch-action: none;
+    cursor: ew-resize;
 }
 
 .comparison-divider span {
@@ -376,11 +379,11 @@ body:not(.dark-theme) .comparison-divider span {
     left: 50%;
     display: grid;
     place-items: center;
-    width: 44px;
-    height: 44px;
-    border: 1px solid rgba(247, 244, 238, 0.7);
-    border-radius: 50%;
-    background: #252521;
+    width: auto;
+    height: auto;
+    border: none;
+    border-radius:0;
+    background: transparent;
     color: #f7f4ee;
     transform: translate(-50%, -50%);
     cursor: ew-resize;
