@@ -1,12 +1,12 @@
 :root {
-    --bg-color: #f7f4ee;
-    --text-color: #252521;
-    --muted-color: #77756e;
-    --border-color: #dcd9d0;
+    --bg-color: #F3F0E9;
+    --text-color: #292824;
+    --muted-color: #827D73;
+    --border-color: ##DED9CF;
 
-    --header-bg: #252521; 
-    --header-text: #f7f4ee; 
-    --header-hover: #c6b7a1;
+    --header-bg: #292824;; 
+    --header-text: #F3F0E9; 
+    --header-hover:  #C6B7A1;
 }
 
 body.dark-theme {
@@ -30,6 +30,23 @@ body {
     color: var(--text-color);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5;
+}
+
+body:not(.dark-theme) .site-header {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+body:not(.dark-theme) .site-header .logo,
+body:not(.dark-theme) .main-nav a {
+    color: var(--text-color);
+}
+
+body:not(.dark-theme) .theme-toggle,
+body:not(.dark-theme) .menu-toggle {
+    color: var(--text-color);
+    border-color: var(--border-color);
 }
 
 a {

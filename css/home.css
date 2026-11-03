@@ -71,10 +71,9 @@ gap: 20px;
     inset: 0;
     background: linear-gradient(
         90deg,
-        rgba(20, 19, 16, 0.78) 0%,
-        rgba(20, 19, 16, 0.48) 38%,
-        rgba(20, 19, 16, 0.08) 75%,
-        rgba(20, 19, 16, 0.25) 100%
+       rgba(20, 19, 16, 0.35) 0%,
+       rgba(20, 19, 16, 0.18) 45%,
+       rgba(20, 19, 16, 0.02) 100%
     );
     pointer-events: none;
 }
@@ -129,8 +128,8 @@ gap: 20px;
 .details-section {
     padding: 90px 6% 75px;
     border-bottom: 1px solid var(--border-color);
-    background-color: #f7f4ee;
-    color: #252521;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 .details-intro {
@@ -163,7 +162,7 @@ gap: 20px;
 
 .details-section .section-label,
 .details-section .details-description {
-    color: #77756e;
+    color: var(--muted-color);
 }
 
 .details-section .section-label,
@@ -286,6 +285,30 @@ font-style: italic;
     border-bottom: 1px solid var(--border-color);
     background-color: #252521;
     color: #f7f4ee;
+}
+
+body:not(.dark-theme) .perspective-section {
+    background-color: #EAE6DC;
+    color: #292824;
+}
+
+body:not(.dark-theme) .perspective-section .section-label,
+body:not(.dark-theme) .perspective-section .perspective-intro > p:last-child {
+    color: #77756E;
+}
+
+body:not(.dark-theme) .perspective-section .comparison-placeholder {
+    background-color: #D8D2C6;
+}
+
+body:not(.dark-theme) .comparison-divider {
+    background-color: #292824;
+}
+
+body:not(.dark-theme) .comparison-divider span {
+    background-color: #F3F0E9;
+    color: #292824;
+    border-color: #292824;
 }
 
 .perspective-intro {
