@@ -13,7 +13,7 @@ menuToggle.addEventListener("click", () => {
 
 const imageComparison = document.querySelector(".image-comparison");
 const comparisonDark = document.querySelector(".comparison-dark");
-const comparisonDivider = document.querySelector(".comparison-divider");
+const comparisonDivider = document.querySelector(".comparison-divider"); 
 
 if (imageComparison && comparisonDark && comparisonDivider) {
 
