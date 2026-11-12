@@ -57,6 +57,34 @@
     font-size: 10px;
 }
 
+/* Gallery Search */
+
+.gallery-search {
+    max-width: 380px;
+    margin: 28px 0 10px;
+}
+
+.gallery-search input {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    outline: none;
+    background: transparent;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 13px;
+    transition: border-color 0.3s ease;
+}
+
+.gallery-search input::placeholder {
+    color: var(--muted-color);
+}
+
+.gallery-search input:focus {
+    border-color: var(--text-color);
+}
+
 /* Category Filters */
 
 .gallery-filters {
