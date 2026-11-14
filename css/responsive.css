@@ -1,0 +1,64 @@
+/* FRAMES PAGE RESPONSIVE */
+
+/* Tablet */
+@media (max-width: 900px) {
+    .frames-page {
+        padding: 65px 5%;
+    }
+
+    .gallery-section {
+        padding: 0;
+    }
+
+    .frames-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .gallery-filters {
+        gap: 22px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .frames-page {
+        padding: 50px 5%;
+    }
+
+    .frames-intro {
+        margin-bottom: 55px;
+    }
+
+    .frames-intro h1 {
+        font-size: 38px;
+        letter-spacing: -1.5px;
+    }
+
+    .frames-intro p {
+        font-size: 14px;
+    }
+
+    .gallery-heading span {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .gallery-filters {
+        gap: 18px;
+        padding: 20px 0;
+    }
+
+    .filter-btn {
+        font-size: 12px;
+    }
+
+    .gallery-search {
+        max-width: 100%;
+    }
+
+    .frames-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+}

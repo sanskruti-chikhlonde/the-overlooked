@@ -120,9 +120,9 @@
 .frames-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 75px;
+    grid-auto-flow: dense;
     gap: 18px;
-    align-items: start;
-}
 
 /* Individual Frame Cards */
 
@@ -130,27 +130,30 @@
     position: relative;
     overflow: hidden;
     background-color: var(--border-color);
-    aspect-ratio: 4 / 5;
+}
+
+.frame-card:nth-child(1) {
+    grid-row: span 5;
 }
 
 .frame-card:nth-child(2) {
-    aspect-ratio: 4 / 5;
+    grid-row: span 4;
 }
 
 .frame-card:nth-child(3) {
-    aspect-ratio: 1 / 1;
+    grid-row: span 3;
 }
 
 .frame-card:nth-child(4) {
-    aspect-ratio: 3 / 4;
+    grid-row: span 4;
 }
 
 .frame-card:nth-child(5) {
-    aspect-ratio: 4 / 5;
+    grid-row: span 5;
 }
 
 .frame-card:nth-child(6) {
-    aspect-ratio: 3 / 4;
+    grid-row: span 3;
 }
 
 .frame-card img {

@@ -12,6 +12,25 @@
 </head>
 <body>
 
+    <header class="site-header">
+    <a href="index.html" class="logo">THE OVERLOOKED</a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+        <a href="unseen.html">UNSEEN</a>
+        <a href="frames.html">FRAMES</a>
+        <a href="keeps.html">KEEPS</a>
+        <a href="perspective.html">PERSPECTIVE</a>
+    </nav>
+
+    <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
+        The World in Shadows
+    </button>
+
+    <button class="menu-toggle" type="button" aria-label="Open navigation">
+        ☰
+    </button>
+</header>
+
 <main class="frames-page">
 
 <section class="frames-intro">
@@ -54,12 +73,11 @@
         <button class="filter-btn" data-filter="atmosphere">Atmosphere</button>
     </div>
 
-    <div class="frames-grid" id="frames-grid">
+<div class="frames-grid" id="frames-grid">
         <div class="frame-card" data-category="nature">
     <img src="" alt="Nature photograph">
     <span class="frame-caption">Nature</span>
 </div>
-<p class="no-results">No frames found.</p>
 
 <div class="frame-card" data-category="structures">
     <img src="" alt="Architecture photograph">
@@ -87,9 +105,21 @@
 </div>
 
 </div>
+
+<p class="no-results">No frames found.</p>
+
 </section>
 </main> 
 
+<footer class="site-footer">
+    <a href="index.html" class="footer-logo">
+        THE OVERLOOKED
+    </a>
+    <p>Things worth noticing.</p>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script src="js/theme.js" defer></script>
 <script src="js/frames.js"></script>
 
 </body>
