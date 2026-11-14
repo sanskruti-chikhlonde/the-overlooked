@@ -1,8 +1,9 @@
 const filterButtons = document.querySelectorAll(".filter-btn");
 const frameCards = document.querySelectorAll(".frame-card");
 const searchInput = document.querySelector("#frame-search");
-let selectedCategory = "all";
+const framesCount = document.querySelector(".frames-count");
 
+let selectedCategory = "all";
 
 filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -20,6 +21,8 @@ filterButtons.forEach((button) => {
 function filterFrames() {
     const searchValue = searchInput.value.toLowerCase();
 
+    let visibleFrames = 0;
+
     frameCards.forEach((card) => {
         const cardCategory = card.dataset.category;
         const cardText = card.textContent.toLowerCase();
@@ -30,7 +33,16 @@ function filterFrames() {
         const matchesSearch = cardText.includes(searchValue);
 
         card.style.display = matchesCategory && matchesSearch ? "block" : "none";
+
+        if (matchesCategory && matchesSearch) {
+            visibleFrames++;
+    }
+    
     });
+
+    framesCount.textContent = `${String(visibleFrames).padStart(2, "0")} FRAMES`;
 }
 
 searchInput.addEventListener("input", filterFrames);
+
+filterFrames();
