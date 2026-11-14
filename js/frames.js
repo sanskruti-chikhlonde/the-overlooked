@@ -2,6 +2,7 @@ const filterButtons = document.querySelectorAll(".filter-btn");
 const frameCards = document.querySelectorAll(".frame-card");
 const searchInput = document.querySelector("#frame-search");
 const framesCount = document.querySelector(".frames-count");
+const noResults = document.querySelector(".no-results");
 
 let selectedCategory = "all";
 
@@ -41,6 +42,8 @@ function filterFrames() {
     });
 
     framesCount.textContent = `${String(visibleFrames).padStart(2, "0")} FRAMES`;
+
+    noResults.style.display = visibleFrames === 0 ? "block" : "none";
 }
 
 searchInput.addEventListener("input", filterFrames);
