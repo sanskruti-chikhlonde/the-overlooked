@@ -1,3 +1,108 @@
+// Gallery Image Collection
+
+const frameImages = [
+    {
+        title: "A Flash of Scarlet",
+        category: "nature",
+        image: "a-flash-of-scarlet.jpg",
+        featured: true
+    },
+    {
+        title: "Alpine Valley",
+        category: "nature",
+        image: "Alpine-Valley.jpg",
+        featured: true
+    },
+    {
+        title: "Blue Haze",
+        category: "nature",
+        image: "Blue-Haze.jpg"
+    },
+    {
+        title: "Canopy",
+        category: "nature",
+        image: "Canopy.jpg"
+    },
+    {
+        title: "Fading Bloom",
+        category: "nature",
+        image: "Fading-Bloom.jpg"
+    },
+    {
+        title: "Hidden Falls",
+        category: "nature",
+        image: "hidden-falls.jpg"
+    },
+    {
+        title: "Into the Wild",
+        category: "nature",
+        image: "Into-the-Wild.jpg"
+    },
+    {
+        title: "Pastures",
+        category: "nature",
+        image: "Pastures.jpg"
+    },
+    {
+        title: "Sparrow",
+        category: "nature",
+        image: "sparrow_nature.jpg"
+    },
+    {
+        title: "Starfall",
+        category: "nature",
+        image: "starfall.jpg"
+    },
+    {
+        title: "Stillwater",
+        category: "nature",
+        image: "stillwater.jpg"
+    },
+    {
+        title: "Uran",
+        category: "nature",
+        image: "uran-wang-jcT3QhiiDE8-unsplash.jpg"
+    },
+    {
+        title: "Veil of Green",
+        category: "nature",
+        image: "Veil-of-Green.jpg"
+    },
+    {
+        title: "Verdant",
+        category: "nature",
+        image: "Verdant.jpg"
+    },
+    {
+        title: "Wild Current",
+        category: "nature",
+        image: "wild-current.jpg"
+    },
+    {
+        title: "Wildflower",
+        category: "nature",
+        image: "Wildflower.jpg"
+    }
+];
+
+const framesGrid = document.querySelector("#frames-grid");
+
+function renderFrames(images) {
+    framesGrid.innerHTML = images.map((frame, index) => `
+        <div class="frame-card" data-category="${frame.category}">
+            <img
+                src="assets/images/${frame.category}/${frame.image}"
+                alt="${frame.title}"
+                loading="lazy"
+            >
+            <span class="frame-caption">${frame.title}</span>
+        </div>
+    `).join("");
+}
+
+renderFrames(frameImages.filter(frame => frame.featured));
+
+
 const filterButtons = document.querySelectorAll(".filter-btn");
 const frameCards = document.querySelectorAll(".frame-card");
 const searchInput = document.querySelector("#frame-search");
@@ -106,4 +211,30 @@ function showPreviousFrame() {
 
 closeButton.addEventListener("click", closeLightbox);
 nextButton.addEventListener("click", showNextFrame);
-previousButton.addEventListener("click", showPreviousFrame);  
+previousButton.addEventListener("click", showPreviousFrame); 
+
+// Lightbox Keyboard Controls
+
+document.addEventListener("keydown", (event) => {
+    if (!lightbox.classList.contains("active")) return;
+
+    if (event.key === "Escape") {
+        closeLightbox();
+    }
+
+    if (event.key === "ArrowRight" && availableFrames.length > 1) {
+        showNextFrame();
+    }
+
+    if (event.key === "ArrowLeft" && availableFrames.length > 1) {
+        showPreviousFrame();
+    }
+});
+
+// Closes Lightbox on Background Click
+
+lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+        closeLightbox();
+    }
+}); 
