@@ -116,7 +116,7 @@ function renderFrames(images) {
             <img
                 src="assets/images/${frame.category}/${frame.image}"
                 alt="${frame.title}"
-                loading="lazy"
+                loading="eager"
             >
             <span class="frame-caption">${frame.title}</span>
         </div>
@@ -128,6 +128,67 @@ renderFrames(frameImages);
 
 const filterButtons = document.querySelectorAll(".filter-btn");
 const frameCards = document.querySelectorAll(".frame-card");
+
+let galleryReady = false;
+
+function arrangeGallery() {
+    const columnCount = window.innerWidth <= 600
+        ? 1
+        : window.innerWidth <= 900
+            ? 2
+            : 3;
+
+    const visibleCards = Array.from(frameCards).filter(
+        card => card.style.display !== "none"
+    );
+
+    const hiddenCards = Array.from(frameCards).filter(
+        card => card.style.display === "none"
+    );
+
+    const columns = [];
+
+    framesGrid.innerHTML = "";
+
+    for (let i = 0; i < columnCount; i++) {
+        const column = document.createElement("div");
+        column.className = "frames-column";
+
+        framesGrid.appendChild(column);
+        columns.push(column);
+    }
+
+    const gap = 20;
+    const columnWidth =
+        (framesGrid.clientWidth - gap * (columnCount - 1)) / columnCount;
+
+    const columnHeights = Array(columnCount).fill(0);
+
+    visibleCards.forEach(card => {
+        const image = card.querySelector("img");
+
+        if (!image.naturalWidth) {
+             columns[0].appendChild(card);
+             return;
+        }
+
+        const imageHeight =
+            columnWidth * (image.naturalHeight / image.naturalWidth);
+
+        const shortestColumn = columnHeights.indexOf(
+            Math.min(...columnHeights)
+        );
+
+        columns[shortestColumn].appendChild(card);
+
+        columnHeights[shortestColumn] += imageHeight + gap;
+    });
+
+    hiddenCards.forEach(card => {
+        columns[0].appendChild(card);
+    });
+}
+
 const searchInput = document.querySelector("#frame-search");
 const framesCount = document.querySelector(".frames-count");
 const noResults = document.querySelector(".no-results");
@@ -146,6 +207,26 @@ filterButtons.forEach((button) => {
         filterFrames();
     });
 });
+
+function waitForImages() {
+    const imagePromises = Array.from(frameCards).map((card) => {
+        const image = card.querySelector("img");
+
+        if (image.complete) {
+            return Promise.resolve();
+        }
+
+        return new Promise((resolve) => {
+            image.addEventListener("load", resolve, { once: true });
+            image.addEventListener("error", resolve, { once: true });
+        });
+    });
+
+    Promise.all(imagePromises).then(() => {
+        galleryReady = true;
+        arrangeGallery();
+    });
+}
 
 function filterFrames() {
     const searchValue = searchInput.value.toLowerCase();
@@ -174,11 +255,27 @@ function filterFrames() {
     framesCount.textContent = `${String(visibleFrames).padStart(2, "0")} FRAMES`;
 
     noResults.style.display = visibleFrames === 0 ? "block" : "none";
+    if (galleryReady) {
+    arrangeGallery();
+}
 }
 
 searchInput.addEventListener("input", filterFrames);
 
 filterFrames();
+waitForImages();
+
+let resizeTimer;
+
+window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+
+    resizeTimer = setTimeout(() => {
+        if (galleryReady) {
+            arrangeGallery();
+        }
+    }, 150);
+});
 
 // Lightbox Elements
 const lightbox = document.querySelector("#lightbox");
@@ -190,17 +287,20 @@ const nextButton = document.querySelector(".lightbox-next");
 
 let currentFrameIndex = 0;
 
-const availableFrames = Array.from(frameCards).filter((card) => {
-    return card.querySelector("img").getAttribute("src").trim() !== "";
-});
+let availableFrames = [];
 
 frameCards.forEach((card) => {
     card.addEventListener("click", () => {
+        availableFrames = Array.from(frameCards).filter((frame) => {
         const image = card.querySelector("img");
 
-        if (!image.getAttribute("src").trim()) return;
+           return frame.style.display !== "none" && image.naturalWidth > 0;
+        });
 
         currentFrameIndex = availableFrames.indexOf(card);
+
+         if (currentFrameIndex === -1) return;
+
         openLightbox();
     });
 });
