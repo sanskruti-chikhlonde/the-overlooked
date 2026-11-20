@@ -82,7 +82,28 @@ const frameImages = [
         title: "Wildflower",
         category: "nature",
         image: "Wildflower.jpg"
-    }
+    },
+
+{
+    title: "Firefall",
+    category: "nature",
+    image: "Firefall.jpg"
+},
+{
+    title: "Stormfront",
+    category: "nature",
+    image: "Stormfront.jpg"
+},
+{
+    title: "Moonrise",
+    category: "nature",
+    image: "Moonrise.jpg"
+},
+{
+    title: "Snowbound",
+    category: "nature",
+    image: "Snowbound.jpg"
+}
 ];
 
 const framesGrid = document.querySelector("#frames-grid");
