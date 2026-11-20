@@ -89,7 +89,9 @@ const framesGrid = document.querySelector("#frames-grid");
 
 function renderFrames(images) {
     framesGrid.innerHTML = images.map((frame, index) => `
-        <div class="frame-card" data-category="${frame.category}">
+        <div class="frame-card"
+             data-category="${frame.category}"
+             data-featured="${frame.featured === true}">
             <img
                 src="assets/images/${frame.category}/${frame.image}"
                 alt="${frame.title}"
@@ -100,7 +102,7 @@ function renderFrames(images) {
     `).join("");
 }
 
-renderFrames(frameImages.filter(frame => frame.featured));
+renderFrames(frameImages);
 
 
 const filterButtons = document.querySelectorAll(".filter-btn");
@@ -134,7 +136,9 @@ function filterFrames() {
         const cardText = card.textContent.toLowerCase();
 
         const matchesCategory =
-            selectedCategory === "all" || selectedCategory === cardCategory;
+            selectedCategory === "all" 
+              ? card.dataset.featured === "true"
+              : selectedCategory === cardCategory;
 
         const matchesSearch = cardText.includes(searchValue);
 
@@ -142,7 +146,7 @@ function filterFrames() {
 
         if (matchesCategory && matchesSearch) {
             visibleFrames++;
-    }
+        }
     
     });
 
