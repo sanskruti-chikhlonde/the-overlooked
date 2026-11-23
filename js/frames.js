@@ -190,7 +190,6 @@ function arrangeGallery() {
 }
 
 const searchInput = document.querySelector("#frame-search");
-const framesCount = document.querySelector(".frames-count");
 const noResults = document.querySelector(".no-results");
 
 let selectedCategory = "all";
@@ -238,9 +237,8 @@ function filterFrames() {
         const cardText = card.textContent.toLowerCase();
 
         const matchesCategory =
-            selectedCategory === "all" 
-              ? card.dataset.featured === "true"
-              : selectedCategory === cardCategory;
+            selectedCategory === "all" ||
+            selectedCategory === cardCategory;
 
         const matchesSearch = cardText.includes(searchValue);
 
@@ -251,8 +249,6 @@ function filterFrames() {
         }
     
     });
-
-    framesCount.textContent = `${String(visibleFrames).padStart(2, "0")} FRAMES`;
 
     noResults.style.display = visibleFrames === 0 ? "block" : "none";
     if (galleryReady) {
@@ -292,7 +288,7 @@ let availableFrames = [];
 frameCards.forEach((card) => {
     card.addEventListener("click", () => {
         availableFrames = Array.from(frameCards).filter((frame) => {
-        const image = card.querySelector("img");
+        const image = frame.querySelector("img");
 
            return frame.style.display !== "none" && image.naturalWidth > 0;
         });
