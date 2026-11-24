@@ -50,24 +50,116 @@
         <span>EXPLORE THE COLLECTION</span>
     </div>
 
+   <div class="gallery-controls">
+
+    <!-- Search Area -->
     <div class="gallery-search">
-    <input
-        type="search"
-        id="frame-search"
-        placeholder="Search the collection..."
-        aria-label="Search photographs"
-    >
+        <svg
+            class="search-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+        >
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m16 16 4 4"></path>
+        </svg>
+
+        <input
+            type="search"
+            id="frame-search"
+            placeholder="Find something worth noticing..."
+            aria-label="Search photographs"
+        >
     </div>
 
-    <div class="gallery-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="nature">Nature</button>
-        <button class="filter-btn" data-filter="structures">Structures</button>
-        <button class="filter-btn" data-filter="details">Details</button>
-        <button class="filter-btn" data-filter="still-life">Still Life</button>
-        <button class="filter-btn" data-filter="portraits">Portraits</button>
-        <button class="filter-btn" data-filter="atmosphere">Atmosphere</button>
+    <!-- Category Navigation -->
+    <div class="category-panel">
+
+        <div class="category-panel-heading">
+            <span>BROWSE BY SUBJECT</span>
+            <span id="active-category-label">ALL FRAMES</span>
+        </div>
+
+        <div
+            class="gallery-filters"
+            role="group"
+            aria-label="Filter photographs by category"
+        >
+
+            <button
+                class="filter-btn active"
+                type="button"
+                data-filter="all"
+                aria-pressed="true"
+            >
+                <span class="filter-btn-text">All</span>
+                <span class="filter-btn-indicator"></span>
+            </button>
+
+            <button
+                class="filter-btn"
+                type="button"
+                data-filter="nature"
+                aria-pressed="false"
+            >
+                <span class="filter-btn-text">Nature</span>
+                <span class="filter-btn-indicator"></span>
+            </button>
+
+            <button
+                class="filter-btn"
+                type="button"
+                data-filter="structures"
+                aria-pressed="false"
+            >
+                <span class="filter-btn-text">Structures</span>
+                <span class="filter-btn-indicator"></span>
+            </button>
+
+            <button
+                class="filter-btn"
+                type="button"
+                data-filter="details"
+                aria-pressed="false"
+            >
+                <span class="filter-btn-text">Details</span>
+                <span class="filter-btn-indicator"></span>
+            </button>
+
+            <button
+                class="filter-btn"
+                type="button"
+                data-filter="still-life"
+                aria-pressed="false"
+            >
+                <span class="filter-btn-text">Still Life</span>
+                <span class="filter-btn-indicator"></span>
+            </button>
+
+            <button
+                class="filter-btn"
+                type="button"
+                data-filter="portraits"
+                aria-pressed="false"
+            >
+                <span class="filter-btn-text">Portraits</span>
+                <span class="filter-btn-indicator"></span>
+            </button>
+
+            <button
+                class="filter-btn"
+                type="button"
+                data-filter="atmosphere"
+                aria-pressed="false"
+            >
+                <span class="filter-btn-text">Atmosphere</span>
+                <span class="filter-btn-indicator"></span>
+            </button>
+
+        </div>
     </div>
+
+</div>
 
 <div class="frames-grid" id="frames-grid"></div>
 
