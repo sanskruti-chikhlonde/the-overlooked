@@ -194,15 +194,28 @@ const noResults = document.querySelector(".no-results");
 
 let selectedCategory = "all";
 
+const activeCategoryLabel = document.querySelector(
+    "#active-category-label"
+);
+
 filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
+
         filterButtons.forEach((btn) => {
             btn.classList.remove("active");
+            btn.setAttribute("aria-pressed", "false");
         });
 
         button.classList.add("active");
+        button.setAttribute("aria-pressed", "true");
 
         selectedCategory = button.dataset.filter;
+
+         activeCategoryLabel.textContent =
+            selectedCategory === "all"
+                ? "ALL FRAMES"
+                : selectedCategory.replace("-", " ").toUpperCase();
+                
         filterFrames();
     });
 });
