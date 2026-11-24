@@ -46,33 +46,42 @@
 
 <section class="gallery-section">
 
-    <div class="gallery-heading">
-        <span>EXPLORE THE COLLECTION</span>
+    <div class="gallery-toolbar">
+
+        <div class="gallery-heading">
+            <span class="gallery-eyebrow">THE PHOTOGRAPHY ARCHIVE</span>
+            <h2>Find a frame.</h2>
+            <p>Search for a moment, a place, or something worth noticing.</p>
+        </div>
+
+        <div class="gallery-search">
+            <label for="frame-search">SEARCH THE ARCHIVE</label>
+
+            <div class="search-field">
+                <svg class="search-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20" height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-4-4"></path>
+                </svg>
+
+                <input
+                    type="search"
+                    id="frame-search"
+                    placeholder="Try a title, like Alpine Valley..."
+                    aria-label="Search photographs">
+            </div>
+        </div>
+
     </div>
 
-   <div class="gallery-controls">
-
-    <!-- Search Area -->
-    <div class="gallery-search">
-        <svg
-            class="search-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-        >
-            <circle cx="11" cy="11" r="7"></circle>
-            <path d="m16 16 4 4"></path>
-        </svg>
-
-        <input
-            type="search"
-            id="frame-search"
-            placeholder="Find something worth noticing..."
-            aria-label="Search photographs"
-        >
-    </div>
-
-    <!-- Category Navigation -->
     <div class="category-panel">
 
         <div class="category-panel-heading">
@@ -80,78 +89,48 @@
             <span id="active-category-label">ALL FRAMES</span>
         </div>
 
-        <div
-            class="gallery-filters"
+        <div class="gallery-filters"
             role="group"
-            aria-label="Filter photographs by category"
-        >
+            aria-label="Filter photographs by category">
 
-            <button
-                class="filter-btn active"
-                type="button"
-                data-filter="all"
-                aria-pressed="true"
-            >
+            <button class="filter-btn active" type="button"
+                data-filter="all" aria-pressed="true">
                 <span class="filter-btn-text">All</span>
                 <span class="filter-btn-indicator"></span>
             </button>
 
-            <button
-                class="filter-btn"
-                type="button"
-                data-filter="nature"
-                aria-pressed="false"
-            >
+            <button class="filter-btn" type="button"
+                data-filter="nature" aria-pressed="false">
                 <span class="filter-btn-text">Nature</span>
                 <span class="filter-btn-indicator"></span>
             </button>
 
-            <button
-                class="filter-btn"
-                type="button"
-                data-filter="structures"
-                aria-pressed="false"
-            >
+            <button class="filter-btn" type="button"
+                data-filter="structures" aria-pressed="false">
                 <span class="filter-btn-text">Structures</span>
                 <span class="filter-btn-indicator"></span>
             </button>
 
-            <button
-                class="filter-btn"
-                type="button"
-                data-filter="details"
-                aria-pressed="false"
-            >
+            <button class="filter-btn" type="button"
+                data-filter="details" aria-pressed="false">
                 <span class="filter-btn-text">Details</span>
                 <span class="filter-btn-indicator"></span>
             </button>
 
-            <button
-                class="filter-btn"
-                type="button"
-                data-filter="still-life"
-                aria-pressed="false"
-            >
+            <button class="filter-btn" type="button"
+                data-filter="still-life" aria-pressed="false">
                 <span class="filter-btn-text">Still Life</span>
                 <span class="filter-btn-indicator"></span>
             </button>
 
-            <button
-                class="filter-btn"
-                type="button"
-                data-filter="portraits"
-                aria-pressed="false"
-            >
+            <button class="filter-btn" type="button"
+                data-filter="portraits" aria-pressed="false">
                 <span class="filter-btn-text">Portraits</span>
                 <span class="filter-btn-indicator"></span>
             </button>
 
-            <button
-                class="filter-btn"
-                type="button"
-                data-filter="atmosphere"
-                aria-pressed="false"
-            >
+            <button class="filter-btn" type="button"
+                data-filter="atmosphere" aria-pressed="false">
                 <span class="filter-btn-text">Atmosphere</span>
                 <span class="filter-btn-indicator"></span>
             </button>
@@ -159,11 +138,9 @@
         </div>
     </div>
 
-</div>
+    <div class="frames-grid" id="frames-grid"></div>
 
-<div class="frames-grid" id="frames-grid"></div>
-
-<p class="no-results">No frames found.</p>
+    <p class="no-results">No frames found.</p>
 
 </section>
 
