@@ -1,0 +1,19 @@
+/* UNSEEN EDITORIAL */
+
+.unseen-page {
+    width: 100%;
+    overflow: hidden;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.unseen-editorial {
+    width: 100%;
+    padding: 35px 7% 30px;
+}
+
+.editorial-stage {
+    position: relative;
+    width: 100%;
+    min-height: 680px;
+}
